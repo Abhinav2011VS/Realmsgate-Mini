@@ -1,0 +1,51 @@
+appId: 'realmsgate-mini'
+productName: 'Realmsgate Mini'
+artifactName: 'Realmsgate-Mini-installer-${version}.${ext}'
+
+copyright: 'Copyright © 2024 Abhinav VS'
+
+asar: true
+compression: 'maximum'
+
+files:
+  - '!{dist,.gitignore,.vscode}'
+
+extraResources:
+  - 'libraries'
+
+# Windows Configuration
+win: 
+  target: 
+    - target: 'nsis'
+      arch: 'x64'
+
+# Windows Installer Configuration
+nsis:
+  oneClick: false
+  perMachine: false
+  allowElevation: true
+  allowToChangeInstallationDirectory: false
+
+# macOS Configuration
+mac:
+  target:
+    - target: 'dmg'
+      arch:
+        - 'x64'
+        - 'arm64'
+  artifactName: 'Realmsgate-Mini-installer-${version}-${arch}.${ext}'
+  category: 'public.app-category.launcher'
+
+# Linux Configuration
+linux: 
+  target: 'AppImage'
+  maintainer: 'Abhinav VS'
+  vendor: 'Abhinav VS'
+  synopsis: 'Realmsgate Mini'
+  description: 'Most compact Minecraft launcher - Realmsgate Mini'
+  category: 'Launcher'
+
+
+directories:
+  buildResources: 'build'
+  output: 'dist'
